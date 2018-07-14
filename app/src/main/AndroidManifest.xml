@@ -16,6 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".ForgotActivity" />
+        <activity android:name=".CompanyActivity" />
+        <activity android:name=".ForumActivity" />
+        <activity android:name=".AddPostActivity" />
+        <activity android:name=".PdfActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".CommentsActivity" />
+        <activity android:name=".SpecialPostActivity"></activity>
     </application>
 
 </manifest>
