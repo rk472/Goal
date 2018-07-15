@@ -2,6 +2,7 @@ package com.smarttersstudio.goal;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
@@ -18,6 +19,6 @@ public class CompanyActivity extends AppCompatActivity {
         String names[]=getResources().getStringArray(R.array.company);
         CompanyAdapter c=new CompanyAdapter(names,getApplicationContext());
         list.setAdapter(c);
-        list.setLayoutManager(new LinearLayoutManager(this));
+        list.setLayoutManager(new GridLayoutManager(this,2));
     }
 }

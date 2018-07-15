@@ -85,4 +85,8 @@ public class LoginActivity extends AppCompatActivity {
         Intent i=new Intent(LoginActivity.this,ForgotActivity.class);
         startActivity(i);
     }
+
+    public void exitApp(View view) {
+        finish();
+    }
 }
