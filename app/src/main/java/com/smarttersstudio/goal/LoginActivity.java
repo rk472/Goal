@@ -47,16 +47,17 @@ public class LoginActivity extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-                String type=authResult.getUser().getDisplayName();
+                String type=authResult.getUser().getDisplayName().split("/")[0];
+                String company=authResult.getUser().getDisplayName().split("/")[1];
                 Intent i;
-                if(type.equals("a")){
+                if(type.equals("s")){
                     i=new Intent(LoginActivity.this,CompanyActivity.class);
                 }else{
                     i=new Intent(LoginActivity.this,ForumActivity.class);
+                    i.putExtra("company",company);
                 }
                 startActivity(i);
                 finish();
-
             }
         });
     }
@@ -65,12 +66,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(mAuth.getCurrentUser()!=null){
-            String type=mAuth.getCurrentUser().getDisplayName();
+            String type=mAuth.getCurrentUser().getDisplayName().split("/")[0];
+            String company=mAuth.getCurrentUser().getDisplayName().split("/")[1];
             Intent i;
-            if(type.equals("a")){
+            if(type.equals("s")){
                 i=new Intent(LoginActivity.this,CompanyActivity.class);
             }else{
                 i=new Intent(LoginActivity.this,ForumActivity.class);
+                i.putExtra("company",company);
             }
             startActivity(i);
             finish();
