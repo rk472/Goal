@@ -109,7 +109,8 @@ public class AddPostActivity extends AppCompatActivity {
 
     }
 
-    public void post(View view) {
+    public void post(final View view) {
+        view.setEnabled(false);
         @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         String d=formatter.format(date);
@@ -119,11 +120,13 @@ public class AddPostActivity extends AppCompatActivity {
         m.put("tag",tag);
         m.put("text",post);
         m.put("time",d);
+        m.put("order",date.getTime()*-1);
         final String key=forumRef.push().getKey();
         forumRef.child(key).updateChildren(m).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                view.setEnabled(true);
             }
         }).addOnSuccessListener(new OnSuccessListener() {
             @Override

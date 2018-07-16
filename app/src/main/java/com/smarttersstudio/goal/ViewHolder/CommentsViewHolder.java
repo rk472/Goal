@@ -1,10 +1,8 @@
 package com.smarttersstudio.goal.ViewHolder;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,31 +11,26 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.smarttersstudio.goal.CommentsActivity;
 import com.smarttersstudio.goal.ProfileActivity;
 import com.smarttersstudio.goal.R;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
-public class ForumViewHolder extends RecyclerView.ViewHolder {
-    private View v;
-    private Button goTOComments;
-    private TextView nameText,postText,timeText,tagText;
+public class CommentsViewHolder extends RecyclerView.ViewHolder{
+    private TextView nameText,timeText,commentText;
     private ImageView dp;
-    private FloatingActionButton fab;
-    public ForumViewHolder(View itemView) {
+    private View v;
+    public CommentsViewHolder(View itemView) {
         super(itemView);
         v=itemView;
-        goTOComments=v.findViewById(R.id.go_to_comments_button);
-        nameText=v.findViewById(R.id.post_name);
-        postText=v.findViewById(R.id.post_text);
-        timeText=v.findViewById(R.id.post_time);
-        tagText=v.findViewById(R.id.post_tag);
-        dp=v.findViewById(R.id.post_dp);
+        nameText=itemView.findViewById(R.id.comment_name);
+        timeText=itemView.findViewById(R.id.comment_time);
+        commentText=itemView.findViewById(R.id.comment_text);
+        dp=itemView.findViewById(R.id.comment_dp);
     }
     public  void setName(final String name){
-       DatabaseReference d= FirebaseDatabase.getInstance().getReference().child("users").child(name);
+        DatabaseReference d= FirebaseDatabase.getInstance().getReference().child("users").child(name);
         d.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -86,52 +79,9 @@ public class ForumViewHolder extends RecyclerView.ViewHolder {
         });
     }
     public void setText(String text){
-        postText.setText(text);
+        commentText.setText(text);
     }
     public void setTime(String time){
         timeText.setText(time);
     }
-    public void setTag(final String tag){
-       if(tag.equals("none")){
-            tagText.setText("");
-        }else {
-            DatabaseReference d = FirebaseDatabase.getInstance().getReference().child("users").child(tag);
-            d.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    String n = dataSnapshot.child("name").getValue().toString();
-                    tagText.setText("@"+n);
-                    tagText.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent i=new Intent(v.getContext(), ProfileActivity.class);
-                            i.putExtra("uid",tag);
-                            v.getContext().startActivity(i);
-                        }
-                    });
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-    }
-    public void setCommentButton(final String pid, final String uid,final String time,final String tag,final String text){
-        goTOComments.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(v.getContext(), CommentsActivity.class);
-                i.putExtra("pid",pid);
-                i.putExtra("uid",uid);
-                i.putExtra("tag",tag);
-                i.putExtra("time",time);
-                i.putExtra("text",text);
-                v.getContext().startActivity(i);
-            }
-        });
-    }
-
-
 }
