@@ -16,10 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity"
+            android:theme="@style/RegisterTheme"/>
         <activity android:name=".HomeActivity" />
         <activity android:name=".ForgotActivity" />
-        <activity android:name=".CompanyActivity" />
+        <activity android:name=".CompanyActivity"
+            android:theme="@style/RegisterTheme"
+            android:label="Select A Company"/>
         <activity android:name=".ForumActivity" />
         <activity android:name=".AddPostActivity" />
         <activity android:name=".PdfActivity" />
