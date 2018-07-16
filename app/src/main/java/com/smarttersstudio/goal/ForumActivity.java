@@ -38,7 +38,7 @@ public class ForumActivity extends AppCompatActivity {
         }
         DatabaseReference d= FirebaseDatabase.getInstance().getReference().child("forum").child(company);
         FirebaseRecyclerOptions<Post> options=new FirebaseRecyclerOptions.Builder<Post>()
-                .setQuery(d,Post.class).build();
+                .setQuery(d.orderByChild("order"),Post.class).build();
         f=new ForumAdapter(options,getApplicationContext());
         list.setAdapter(f);
         list.setHasFixedSize(true);
