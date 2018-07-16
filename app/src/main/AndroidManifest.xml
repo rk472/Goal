@@ -19,9 +19,10 @@
         <activity android:name=".LoginActivity"
             android:theme="@style/RegisterTheme"/>
         <activity android:name=".HomeActivity" />
-        <activity android:name=".ForgotActivity" />
+        <activity android:name=".ForgotActivity"
+            android:theme="@style/RegisterTheme"/>
         <activity android:name=".CompanyActivity"
-            android:theme="@style/RegisterTheme"
+            android:theme="@style/AppTheme"
             android:label="Select A Company"/>
         <activity android:name=".ForumActivity" />
         <activity android:name=".AddPostActivity" />

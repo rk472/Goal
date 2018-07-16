@@ -17,9 +17,8 @@ public class ForumAdapter extends FirebaseRecyclerAdapter<Post,ForumViewHolder> 
     Context c;
     public ForumAdapter(@NonNull FirebaseRecyclerOptions<Post> options,Context c) {
         super(options);
-        this.c=c;
+        this.c = c;
     }
-
     @Override
     protected void onBindViewHolder(@NonNull ForumViewHolder holder, int position, @NonNull Post model) {
         holder.setCommentButton(getRef(position).getKey(),model.getName(),model.getTime(),model.getTag(),model.getText());

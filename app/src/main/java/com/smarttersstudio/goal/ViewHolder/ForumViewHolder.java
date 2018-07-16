@@ -50,15 +50,12 @@ public class ForumViewHolder extends RecyclerView.ViewHolder {
                     }
                 });
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
     }
     public void setDp(final String uid){
-
         DatabaseReference d=FirebaseDatabase.getInstance().getReference().child("users").child(uid);
         d.addValueEventListener(new ValueEventListener() {
             @Override
@@ -69,14 +66,12 @@ public class ForumViewHolder extends RecyclerView.ViewHolder {
                             @Override
                             public void onSuccess() {
                             }
-
                             @Override
                             public void onError() {
                                 Picasso.with(v.getContext()).load(url).placeholder(R.drawable.logo).into(dp);
                             }
                         });
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -108,7 +103,6 @@ public class ForumViewHolder extends RecyclerView.ViewHolder {
                         }
                     });
                 }
-
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 
@@ -131,6 +125,4 @@ public class ForumViewHolder extends RecyclerView.ViewHolder {
             }
         });
     }
-
-
 }

@@ -63,4 +63,8 @@ public class ForgotActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void exitApp(View view) {
+        finish();
+    }
 }
