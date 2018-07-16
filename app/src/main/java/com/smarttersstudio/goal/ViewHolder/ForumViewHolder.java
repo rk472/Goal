@@ -116,12 +116,16 @@ public class ForumViewHolder extends RecyclerView.ViewHolder {
             });
         }
     }
-    public void setCommentButton(final String pid){
+    public void setCommentButton(final String pid, final String name, final String time, final String tag, final String text){
         goTOComments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(v.getContext(), CommentsActivity.class);
                 i.putExtra("pid",pid);
+                i.putExtra("uid",name);
+                i.putExtra("time",time);
+                i.putExtra("tag",tag);
+                i.putExtra("text",text);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().startActivity(i);
             }

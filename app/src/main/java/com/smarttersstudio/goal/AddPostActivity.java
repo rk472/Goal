@@ -131,11 +131,8 @@ public class AddPostActivity extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener() {
             @Override
             public void onSuccess(Object o) {
-                if(!tag.equals("none")){
-                    userRef.child(tag).child("post").push().child("key").setValue(key);
                     Toast.makeText(AddPostActivity.this, "Post Successful...", Toast.LENGTH_SHORT).show();
                     finish();
-                }
             }
         });
     }
