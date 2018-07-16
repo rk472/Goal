@@ -23,6 +23,7 @@ public class CompanyViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 Intent i=new Intent(v.getContext(), ForumActivity.class);
                 i.putExtra("company",name);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().startActivity(i);
             }
         });

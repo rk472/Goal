@@ -1,10 +1,9 @@
 package com.smarttersstudio.goal.ViewHolder;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,10 +21,9 @@ import com.squareup.picasso.Picasso;
 
 public class ForumViewHolder extends RecyclerView.ViewHolder {
     private View v;
-    private Button goTOComments;
+    private ImageButton goTOComments;
     private TextView nameText,postText,timeText,tagText;
     private ImageView dp;
-    private FloatingActionButton fab;
     public ForumViewHolder(View itemView) {
         super(itemView);
         v=itemView;
@@ -124,6 +122,7 @@ public class ForumViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 Intent i=new Intent(v.getContext(), CommentsActivity.class);
                 i.putExtra("pid",pid);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().startActivity(i);
             }
         });

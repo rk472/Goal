@@ -32,7 +32,7 @@ public class ForumAdapter extends FirebaseRecyclerAdapter<Post,ForumViewHolder> 
     @NonNull
     @Override
     public ForumViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(c).inflate(R.layout.forum_row,parent,false);
+        View v = LayoutInflater.from(c).inflate(R.layout.forum_row,parent,false);
         return new ForumViewHolder(v);
     }
 }
