@@ -48,7 +48,7 @@
                     android:textColorHint="@color/colorWhite"
                     android:layout_height="wrap_content">
                     <EditText
-                        android:id="@+id/login_email"
+                        android:id="@+id/forgot_email"
                         android:foregroundTint="@color/colorWhite"
                         android:backgroundTint="@color/colorWhite"
                         android:layout_width="match_parent"

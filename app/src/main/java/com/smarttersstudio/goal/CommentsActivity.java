@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +43,7 @@ public class CommentsActivity extends AppCompatActivity {
     private ImageView dp;
     private TextView nameText,postText,timeText,tagText;
     private EditText commentText;
-    private Button commentButton;
+    private ImageButton commentButton;
     private CommentsAdapter f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -64,11 +64,13 @@ public class ForumActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        Intent i=null;
         if (id == R.id.action_profile) {
-
+            i=new Intent(this,ProfileActivity.class);
         }else if(id == R.id.action_doccument){
-
+            i=new Intent(this,PdfActivity.class);
         }
+        startActivity(i);
         return super.onOptionsItemSelected(item);
     }
     @Override
