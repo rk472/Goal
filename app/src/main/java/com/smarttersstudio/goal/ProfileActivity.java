@@ -139,7 +139,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> thumb_task) {
                         if(thumb_task.isSuccessful()) {
                             final String thumb_downloadUrl = thumb_task.getResult().getDownloadUrl().toString();
-                            FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("image").setValue(thumb_downloadUrl).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("dp").setValue(thumb_downloadUrl).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful())
