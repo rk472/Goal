@@ -67,8 +67,10 @@ public class ForumActivity extends AppCompatActivity {
         Intent i=null;
         if (id == R.id.action_profile) {
             i=new Intent(this,ProfileActivity.class);
+            i.putExtra("uid",mAuth.getCurrentUser().getUid());
         }else if(id == R.id.action_doccument){
             i=new Intent(this,PdfActivity.class);
+            i.putExtra("company",company);
         }
         startActivity(i);
         return super.onOptionsItemSelected(item);
