@@ -92,6 +92,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+        userRef.keepSynced(true);
 
     }
 

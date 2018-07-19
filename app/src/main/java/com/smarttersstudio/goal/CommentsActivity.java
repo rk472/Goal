@@ -94,7 +94,7 @@ public class CommentsActivity extends AppCompatActivity {
         setTag();
         timeText.setText(time);
         postText.setText(text);
-
+        commentRef.keepSynced(true);
     }
 
     @Override
@@ -117,6 +117,7 @@ public class CommentsActivity extends AppCompatActivity {
 
             }
         });
+        d.keepSynced(true);
     }
 
     private void setDp() {
@@ -143,6 +144,7 @@ public class CommentsActivity extends AppCompatActivity {
 
             }
         });
+        d.keepSynced(true);
     }
 
     private void setName() {
@@ -159,6 +161,7 @@ public class CommentsActivity extends AppCompatActivity {
 
             }
         });
+        d.keepSynced(true);
     }
 
     public void comment(final View view) {

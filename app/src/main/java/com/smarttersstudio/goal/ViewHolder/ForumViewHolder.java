@@ -77,6 +77,7 @@ public class ForumViewHolder extends RecyclerView.ViewHolder {
 
             }
         });
+        d.keepSynced(true);
     }
     public void setText(String text){
         postText.setText(text);
@@ -108,6 +109,7 @@ public class ForumViewHolder extends RecyclerView.ViewHolder {
 
                 }
             });
+            d.keepSynced(true);
         }
     }
     public void setCommentButton(final String pid, final String name, final String time, final String tag, final String text){

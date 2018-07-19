@@ -43,6 +43,7 @@ public class ForumActivity extends AppCompatActivity {
         list.setAdapter(f);
         list.setHasFixedSize(true);
         list.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
+        d.keepSynced(true);
     }
 
     public void goToAddPost(View view) {

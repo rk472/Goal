@@ -51,6 +51,7 @@ public class CommentsViewHolder extends RecyclerView.ViewHolder{
 
             }
         });
+        d.keepSynced(true);
     }
     public void setDp(final String uid){
 
