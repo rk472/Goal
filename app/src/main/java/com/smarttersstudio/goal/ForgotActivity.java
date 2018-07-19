@@ -30,7 +30,6 @@ public class ForgotActivity extends AppCompatActivity {
         emailText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -40,10 +39,8 @@ public class ForgotActivity extends AppCompatActivity {
                     forgotButton.setEnabled(true);
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
     }
@@ -63,7 +60,6 @@ public class ForgotActivity extends AppCompatActivity {
             }
         });
     }
-
     public void exitApp(View view) {
         finish();
     }
