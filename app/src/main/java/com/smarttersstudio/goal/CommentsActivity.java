@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,6 +46,8 @@ public class CommentsActivity extends AppCompatActivity {
     private EditText commentText;
     private ImageButton commentButton;
     private CommentsAdapter f;
+    private String myUid;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,11 +59,13 @@ public class CommentsActivity extends AppCompatActivity {
         time=getIntent().getExtras().getString("time");
         tag=getIntent().getExtras().getString("tag");
         commentRef= FirebaseDatabase.getInstance().getReference().child("comments").child(pid);
-        FirebaseRecyclerOptions<Comments> options=new FirebaseRecyclerOptions.Builder<Comments>().setQuery(commentRef,Comments.class).build();
+        FirebaseRecyclerOptions<Comments> options=new FirebaseRecyclerOptions.Builder<Comments>().setQuery(commentRef.orderByChild("order"),Comments.class).build();
         f=new CommentsAdapter(options,getApplicationContext());
         list.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         list.setHasFixedSize(true);
         list.setAdapter(f);
+        mAuth=FirebaseAuth.getInstance();
+        myUid=mAuth.getCurrentUser().getUid();
         nameText=findViewById(R.id.comment_post_name);
         dp=findViewById(R.id.comment_post_dp);
         postText=findViewById(R.id.comment_post_text);
@@ -172,7 +177,7 @@ public class CommentsActivity extends AppCompatActivity {
         String d=formatter.format(date);
         String post=postText.getText().toString();
         Map m=new HashMap();
-        m.put("uid",uid);
+        m.put("uid",myUid);
         m.put("text",comment);
         m.put("time",d);
         m.put("order",-1*date.getTime());
