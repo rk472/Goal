@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView nameText,emailText,companyText;
     private FirebaseAuth mAuth;
     private String myUid;
+    private CardView compCard;
     private Button logoutButton,uploadButton;
     private DatabaseReference userRef;
     private Bitmap thumb_bitmap;
@@ -48,6 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         dp=findViewById(R.id.profile_image);
+        compCard = findViewById(R.id.company_card);
         nameText=findViewById(R.id.profile_name);
         emailText=findViewById(R.id.profile_email);
         companyText=findViewById(R.id.profile_company);
@@ -72,7 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
                 emailText.setText(email);
                 if(!company.equals("none")){
                     companyText.setText(company);
-                    companyText.setVisibility(View.VISIBLE);
+                    compCard.setVisibility(View.VISIBLE);
                 }
                 Picasso.with(ProfileActivity.this).load(url).networkPolicy(NetworkPolicy.OFFLINE).placeholder(R.drawable.logo)
                         .into(dp, new Callback() {

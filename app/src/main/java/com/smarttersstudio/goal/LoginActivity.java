@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        final ProgressDialog p=new ProgressDialog(this);
+        final ProgressDialog p=new ProgressDialog(this,R.style.AppCompatAlertDialogStyle);
         p.setMessage("Please Wait While We are logging you in");
         p.setTitle("Please Wait");
         p.show();

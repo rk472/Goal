@@ -30,8 +30,7 @@
             android:label="Select A Company"/>
         <activity android:name=".ForumActivity"
             android:label="Forum"/>
-        <activity android:name=".AddPostActivity"
-            android:label="Ask Any Question"/>
+        <activity android:name=".AddPostActivity"/>
         <activity android:name=".PdfActivity"
             android:label="Documents"/>
         <activity android:name=".ProfileActivity"

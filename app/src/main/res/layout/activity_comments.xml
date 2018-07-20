@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".CommentsActivity"
     android:orientation="vertical"
-    android:weightSum="20">
+    android:weightSum="23">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6">
+        android:layout_weight="5">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,39 +60,57 @@
                 android:textColor="#2a2499"/>
         </LinearLayout>
     </ScrollView>
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="10sp"
-        android:layout_marginRight="10sp"
-        android:background="#9b9b9b"/>
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#9b9b9b"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comments"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_margin="10sp"/>
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="12"
+        android:layout_weight="13"
+        android:layout_marginLeft="10sp"
         android:id="@+id/comment_list"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:weightSum="12"
-        android:background="@drawable/pink_outline"
+        android:layout_weight="3"
+        android:gravity="bottom"
         android:orientation="horizontal">
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:paddingLeft="10sp"
-            android:background="#00000000"
-            android:hint="Enter Comment Here"
-            android:id="@+id/comment_input"/>
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:background="#00000000"
-            android:src="@drawable/send_comment"
-            android:layout_height="match_parent"
-            android:id="@+id/comment_button"
-            android:onClick="comment"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:weightSum="12"
+            android:background="@drawable/pink_outline"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:paddingLeft="10sp"
+                android:background="#00000000"
+                android:hint="Enter Comment Here"
+                android:id="@+id/comment_input"/>
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:background="#00000000"
+                android:src="@drawable/send_comment"
+                android:layout_height="match_parent"
+                android:id="@+id/comment_button"
+                android:onClick="comment"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -136,4 +136,8 @@ public class AddPostActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void exitApp(View view) {
+        finish();
+    }
 }
